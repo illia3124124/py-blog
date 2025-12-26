@@ -6,7 +6,7 @@
         <h3>
           Title: <a href="{% url "blog:post-detail" pk=post.id %}">{{ post.title }}</a>
         </h3>
-        <h6>Author: {{ post.owner }}</h6>
+        <h6>Author: {{ post.author }}</h6>
         <p>Content: {{ post.content }}</p>
         <p>Created time: {{ post.created_time }}</p>
         <p>Number of comments: {{ post.commentary_set.count }}</p>
