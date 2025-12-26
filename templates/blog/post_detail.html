@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>{{ post.title }}</h1>
+  <p>{{ post.owner.username }} at {{ post.created_time }}</p>
+  <p>{{ post.content }}</p>
+  <ul>
+    {% for comment in post.commentary_set.all %}
+      <li>
+        <h6>{{ comment.user.username }}</h6>
+        <p>{{ comment.content }}</p>
+      </li>
+    {% endfor %}
+  </ul>
+  <form action="/posts/{{ post.id }}/commentaries/create" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="hidden" name="user" value="{{ user.id }}">
+    <input type="hidden" name="post" value="{{ post.id }}">
+    <button type="submit">Add new commentary</button>
+  </form>
+{% endblock %}
