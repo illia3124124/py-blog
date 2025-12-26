@@ -10,7 +10,7 @@
 </head>
 <body>
 {% if user.is_authenticated %}
-  <li class="list-group-item">User: <a href="{{ user.get_absolute_url }}">{{ user.get_username }}</a></li>
+  <h6 class="list-group-item">User: {{ user.get_username }}</h6>
   <form method="post" action="{% url 'logout' %}">
     {% csrf_token %}
     <button type="submit">logout</button>

@@ -1,10 +1,6 @@
 from django.urls import path
 
-from blog.views import (
-    index,
-    PostDetailView,
-    commentary_create
-)
+from blog.views import index, PostDetailView, commentary_create
 
 
 urlpatterns = [
@@ -13,7 +9,7 @@ urlpatterns = [
     path(
         "posts/<int:pk>/commentaries/create",
         commentary_create,
-        name="commentary-create"
+        name="commentary-create",
     ),
 ]
 

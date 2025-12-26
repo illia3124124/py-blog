@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load crispy_forms_filters %}
 
 {% block content %}
   <h1>{{ post.title }}</h1>
@@ -12,11 +13,9 @@
       </li>
     {% endfor %}
   </ul>
-  <form action="/posts/{{ post.id }}/commentaries/create" method="post">
+  <form action="{% url 'blog:commentary-create' pk=post.id %}" method="post">
     {% csrf_token %}
-    {{ form }}
-    <input type="hidden" name="user" value="{{ user.id }}">
-    <input type="hidden" name="post" value="{{ post.id }}">
+    {{ form|crispy }}
     <button type="submit">Add new commentary</button>
   </form>
 {% endblock %}
