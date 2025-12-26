@@ -10,7 +10,11 @@ from blog.views import (
 urlpatterns = [
     path("", index, name="index"),
     path("posts/<int:pk>/", PostDetailView.as_view(), name="post-detail"),
-    path("posts/<int:pk>/commentaries/create", commentary_create, name="commentary-create"),
+    path(
+        "posts/<int:pk>/commentaries/create",
+        commentary_create,
+        name="commentary-create"
+    ),
 ]
 
 app_name = "blog"
